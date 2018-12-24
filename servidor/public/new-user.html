@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="/styles/styles.css">
+  <title>Document</title>
+</head>
+<body class="newUsersBody">
+  <header>
+    <h1>Agregar un usuario</h1>
+  </header>
+  
+  
+  <form>
+    <div class="form-group">
+      <label for="formGroupExampleInput">Nombre</label>
+      <input type="text" class="form-control" id="" name="name" placeholder="Juan" required>
+      <div class="valid-feedback">
+        Looks good!
+      </div>
+      <label class="modalWrong mwName hidden">
+          <p>El nombre ingresado es incorrecto</p>
+      </label>
+    </div>
+    <div class="form-group">
+      <label for="formGroupExampleInput2">Apellido</label>
+      <input type="text" class="form-control" id="" name="surname" placeholder="Perez" required>
+      <label class="modalWrong mwSurname hidden">
+          <p>El apellido ingresado es incorrecto</p>
+      </label>
+    </div>
+    <div class="form-group">
+      <label for="formGroupExampleInput">Email</label>
+      <input type="email" class="form-control" id="" name="email" placeholder="juan@gmail.com" required>
+      <label class="modalWrong mwEmail hidden">
+          <p>El email ingresado es incorrecto</p>
+      </label>
+    </div>
+    <div class="form-group">
+      <label for="formGroupExampleInput">Telefono</label>
+      <input type="number" class="form-control" id="" name="phone" placeholder="011 1527126082" required>
+      <label class="modalWrong mwPhone hidden">
+          <p>El teléfono ingresado es incorrecto</p>
+      </label>
+    </div>
+    <label class="modalWrong mwAll hidden">
+      <p>Tenés que llenar todos los campos</p>
+    </label>
+    <div>
+        <button type="button" class="btn btn-primary btnSave">Guardar</button>
+        <button type="button" class="btn btn-secondary btnCancel">Cancelar</button>
+    </div>
+  </form>
+
+
+
+  <div class="modal newUserModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Usuario creado con éxito!</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Tu nuevo usuario fue creado, para volver a la página principal hacé click en "Cerrar"</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary btnFillNew">Cargar nuevo usuario</button>
+          <button type="button" class="btn btn-secondary btnClose" data-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal cancelNewUserModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Seguro de deseas cancelar?</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>El nuevo usuario no será creado. Para volver a la pagina principal haz click en "Cancelar" para seguir editando el usuari haz click en "Cerrar" </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary btnDontSave">Cancelar</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"> </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src="/javascripts/new-user.js"></script>
+</body>
+</html>

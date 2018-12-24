@@ -1,0 +1,55 @@
+body {
+  margin: 2vh 2vw;
+}
+
+header {
+  font-size: 5vh;
+}
+
+.usersThings {
+  display: flex;
+  justify-content: space-between;
+  margin: 2vh 0;
+}
+.usersThings .search {
+  display: flex;
+}
+.usersThings .search .btnSearch {
+  margin: 0 0.5vw;
+}
+
+.newUsersBody {
+  background: #e6e3e3;
+}
+
+.hidden {
+  display: none;
+}
+
+.modalWrong {
+  color: red;
+  margin-bottom: 0;
+  font-size: 2vh;
+}
+
+.mwAll {
+  font-size: 3vh;
+}
+
+@media (min-width: 900px) {
+  .newUsersBody {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 4vh;
+  }
+
+  form {
+    margin-top: 8vh;
+  }
+  form .form-group {
+    width: 50vw;
+  }
+}
+
+/*# sourceMappingURL=styles.css.map */
