@@ -177,30 +177,25 @@ router.get('/ping', function (req, res) {;
 
 //logica de filtrado con FILTER
 
-router.get('/api/users?search', function (req, res) {
+router.get('/api/users', function (req, res) {
   let search = req.query.search;
   
   if (search && search.length > 0) {
   
-    let userFilter = users.filter( function (dataUser) {  
+    let users = users.filter( function (dataUser) {  
       return dataUser.nombre.toLowCase().indexOf(search.toLowCase()) >= 0 ||
         dataUser.apellido.toLowCase().indexOf(search.toLowCase()) >= 0 ||
         dataUser.telefono.toLowCase().indexOf(search.toLowCase()) >= 0 ||
         dataUser.email.toLowCase().indexOf(search.toLowCase()) >= 0
-    });
-
-    usersFilter.push(users[i]);
-    
-  res.json(userFilter);
-  return;
+    });  
+  // res.json(userFilter);
+  // return;
   } else {
     //HACER UN MODAL DE QUE NO HAY COICIDENCIAS
   }
 
   res.jason(users);
 })
-
-
 
 
 //logica filtrado con for
