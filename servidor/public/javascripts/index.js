@@ -1,5 +1,3 @@
-var inputSearch = $('.inputSearch').val();
-
 $.ajax('/api/users').done(function(data){
   for (let i = 0; i < data.length; i++) {
     $('.fillTable').append(`
@@ -54,10 +52,10 @@ $(document).on('click', '.btnDelete', function () {
 
 
 $('.btnSearch').on('click', function () {
-  $('.fillTable').remove()
-  console.log('eliminadas celdas')
-  $.ajax('/api/users?search').done(function(data){ 
-
+  var inputSearch = $('.inputSearch').val();
+  $('.fillTable').empty()
+  $.ajax(`/api/users?search=${inputSearch}`).done(function(data){ 
+    console.log(data)
     for (var i = 0; i < data.length; i++){
     $('.fillTable').append(`
       <tr
@@ -71,16 +69,7 @@ $('.btnSearch').on('click', function () {
       </tr>    
       `)
     }
-
-  //   for (let i = 0; i < data.length; i++){
-  //     if (inputSearch != data[i].name &&
-  //       inputSearch != data[i].surname &&
-  //       inputSearch != data[i].email &&
-  //       inputSearch != data[i].phone ) {
-  //         $(data[i].id).addClass('hidden');
-  //     }
-  //   }
-  console.log('dentro del ajax')
   })
 })
+
 

@@ -28,10 +28,6 @@ router.get('/users/edit', function (req, res) {
   res.sendFile( path.join(__dirname, '..', 'public', 'edit-user.html'))
 })
 
-router.get('/api/users', function (req, res) {
-  res.json(users);
-})
-
 
 router.post('/api/users', function (req, res) {
   const user = req.body;
@@ -144,32 +140,6 @@ router.put('api/users/:id', function (req, res) {
 })
 
 
-
-//EDITAR USUARIOSDE JUANI
-
-// router.put('/api/users/:id', function(req, res){
-//   const theId = req.params.id;
-//   const body = req.body;
-//   const bodyKeys = Object.keys(body);
-  
-//   for (var i = 0; i < users.length; i++) {
-//     const currentUser = users[i];
-//     if (currentUser.id == theId) {
-//       const userKeys = Object.keys(currentUser);
-//       for (let x = 0; x < bodyKeys.length; x++) {
-//         const currentBodyKey = bodyKeys[x]
-//         if (userKeys.indexOf(currentBodyKey) > -1) {
-//           currentUser[currentBodyKey] = body[currentBodyKey]
-//         }else{
-//           console.log(`${currentBodyKey} no es una clave valida`);
-//         }
-//       }
-//       return res.json(currentUser)
-//     }
-//   }
-// });
- 
-
 router.get('/ping', function (req, res) {;
   res.send('pong!');
 })
@@ -179,22 +149,26 @@ router.get('/ping', function (req, res) {;
 
 router.get('/api/users', function (req, res) {
   let search = req.query.search;
-  
+
+  console.log(search)
+  try{
   if (search && search.length > 0) {
   
-    let users = users.filter( function (dataUser) {  
-      return dataUser.nombre.toLowCase().indexOf(search.toLowCase()) >= 0 ||
-        dataUser.apellido.toLowCase().indexOf(search.toLowCase()) >= 0 ||
-        dataUser.telefono.toLowCase().indexOf(search.toLowCase()) >= 0 ||
-        dataUser.email.toLowCase().indexOf(search.toLowCase()) >= 0
+    let usersFilter = users.filter( function (dataUser) {  
+      return dataUser.name.toLowerCase().includes(search.toLowerCase()) ||
+        dataUser.surname.toLowerCase().includes(search.toLowerCase()) ||
+        dataUser.phone.toLowerCase().includes(search.toLowerCase()) ||
+        dataUser.email.toLowerCase().includes(search.toLowerCase())
     });  
-  // res.json(userFilter);
+  return res.json(usersFilter);
   // return;
   } else {
-    //HACER UN MODAL DE QUE NO HAY COICIDENCIAS
+    console.log('no hay coincidencia')
   }
+    res.json(users);
+}catch(e){console.log(e)};
 
-  res.jason(users);
+  
 })
 
 
